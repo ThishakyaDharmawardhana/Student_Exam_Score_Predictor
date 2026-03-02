@@ -21,4 +21,8 @@ if st.button("Predict Exam Score"):
     prediction = float(model.predict(input_data)[0])
 
     prediction = max(0, min(100, prediction))
-    st.success(f"Predicted Exam Score: {prediction:.2f}")
+    if prediction < 50.00:
+        st.error(f"Predicted Exam Score: {prediction:.2f}")
+    else:
+        st.success(f"Predicted Exam Score: {prediction:.2f}")
+        
